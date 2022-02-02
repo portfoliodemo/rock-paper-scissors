@@ -1,10 +1,15 @@
 
 /* Rudimentary Console Based Rock Paper Scissors Game */
 
+// Get 'Start Game' button
+// const button = document.querySelector('.start');
+
+// Listen for Start Game button click event
+// button.addEventListener("click", playGame());
+
 playGame();
 
 function playGame() {
-
     const playerSelection = userPlay();
     const computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
@@ -13,15 +18,13 @@ function playGame() {
 
 // Play a single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {
-
     // Compare the two entries and signify win, loss or tie.
     const gameResult = evaluateMatch(playerSelection, computerSelection);
     console.log(gameResult);
 }
 
 // Prompt the user to enter either: Rock, Paper or Scissors
-function userPlay() {
-    
+function userPlay() {    
     const userChoice = prompt(`Enter your selection: Rock, Paper or Scissors.`);
     
     // Validation needed to ensure only of the three values are entered, nothing else. 
@@ -32,7 +35,6 @@ function userPlay() {
 
 // Randomly return either: Rock, Paper or Scissors
 function computerPlay() {
-
     // ** Refactor function ** //
     const rock = 0;
     const paper = 1;
@@ -62,7 +64,6 @@ function computerPlay() {
 
 // A function to compare entries, determine result
 function evaluateMatch(playerSelection, computerSelection) {
-
     // Rules of Rock, Paper, Scissors
     // Rock > Scissors
     // Paper > Rock

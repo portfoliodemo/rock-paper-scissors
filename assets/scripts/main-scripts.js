@@ -8,14 +8,11 @@ const button = document.querySelector('.start');
 // playGame();
 button.addEventListener("click", playGame);
 
-
-
 function playGame() {
     const playerSelection = userPlay();
     const computerSelection = computerPlay();
     playRound(playerSelection, computerSelection);
 }
-
 
 // Play a single round of Rock Paper Scissors
 function playRound(playerSelection, computerSelection) {

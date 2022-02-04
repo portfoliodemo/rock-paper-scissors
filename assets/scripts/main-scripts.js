@@ -2,12 +2,13 @@
 /* Rudimentary Console Based Rock Paper Scissors Game */
 
 // Get 'Start Game' button
-// const button = document.querySelector('.start');
+const button = document.querySelector('.start');
 
 // Listen for Start Game button click event
-// button.addEventListener("click", playGame());
+// playGame();
+button.addEventListener("click", playGame);
 
-playGame();
+
 
 function playGame() {
     const playerSelection = userPlay();

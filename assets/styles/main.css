@@ -21,9 +21,16 @@ body {
 header {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 header h1 {
     text-align: center;
     font-family: 'Righteous', cursive, sans-serif;
+}
+
+button {
+    width: 30%;
+    font-size: 2em;
 }

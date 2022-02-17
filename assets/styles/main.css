@@ -31,6 +31,5 @@ header h1 {
 }
 
 button {
-    width: 30%;
-    font-size: 2em;
+    display: flex;
 }

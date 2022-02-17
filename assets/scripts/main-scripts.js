@@ -4,9 +4,33 @@
 // Get 'Start Game' button
 const button = document.querySelector('.start');
 
+// Game Counters
+let playerCount = 0;
+let computerCount = 0;
+
 // Listen for Start Game button click event
 // playGame();
-button.addEventListener("click", playGame);
+// button.addEventListener("click", playGame);
+
+// Trigger five games
+for(let i = 0; i < 5; i++) {
+    playGame();
+
+    if(i == 4) {
+        console.log(`Final Score: Player = ${playerCount} | Computer = ${computerCount}`);
+        if(playerCount > computerCount) {
+            alert(`Congratulations! You won the series! Final Score: Player = ${playerCount} | 
+                    Computer = ${computerCount}`);
+        } else if (playerCount < computerCount) {
+            alert(`You lost the series! Better luck next time! Final Score: Player = ${playerCount} | 
+                    Computer = ${computerCount}`);
+        } else {
+            alert(`Series was a tie! Final Score: Player = ${playerCount} | Computer = ${computerCount}`);
+        }
+    } else {
+        console.log(`Current Score: Player = ${playerCount} | Computer = ${computerCount}`);
+    }
+}
 
 function playGame() {
     const playerSelection = userPlay();
@@ -22,13 +46,24 @@ function playRound(playerSelection, computerSelection) {
 }
 
 // Prompt the user to enter either: Rock, Paper or Scissors
-function userPlay() {    
-    const userChoice = prompt(`Enter your selection: Rock, Paper or Scissors.`);
-    
-    // Validation needed to ensure only of the three values are entered, nothing else. 
-    // (userChoice != 'Rock' || userChoice != 'Paper' || userChoice != 'Scissors') 
+function userPlay() {
 
+    let userChoice = prompt(`Enter your selection - Rock, Paper or Scissors: `);
     return userChoice;
+    // do {
+    //     userChoice = prompt(`Enter your selection - Rock, Paper or Scissors: `);
+
+    //     // Validation needed to ensure only one of the three values are entered, nothing else.
+    //     if(userChoice.toLocaleLowerCase() == "rock" || userChoice.toLocaleLowerCase() == "paper" ||
+    //             userChoice.toLocaleLowerCase == "scissors") {
+    //             return userChoice;
+    //         }
+    //         else {
+    //             userChoice = prompt(`Enter a valid selection - Rock, Paper or Scissors: `);
+    //         }
+    //     } while (userChoice.toLocaleLowerCase() != "rock" || userChoice.toLocaleLowerCase() == "paper" ||
+    //             userChoice.toLocaleLowerCase == "scissors");
+
 }
 
 // Randomly return either: Rock, Paper or Scissors
@@ -46,11 +81,11 @@ function computerPlay() {
         case 0:
             return 'Rock';
             break;
-        
+
         case 1:
             return 'Paper';
             break;
-        
+
         case 2:
             return 'Scissors';
             break;
@@ -68,21 +103,25 @@ function evaluateMatch(playerSelection, computerSelection) {
     // Scissors > Paper
     // Rock = Rock
 
-    // ** Refactor Function ** // 
+    // Track player and computer score
 
-    if(playerSelection == 'Rock') {
+    // ** Refactor Function ** //
+
+    if(playerSelection.toLocaleLowerCase() == 'rock') {
 
         switch (computerSelection) {
 
             case 'Rock':
-                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;               
+                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;
                 break;
-        
+
             case 'Paper':
+                computerCount++;
                 return `You lose: Player(${playerSelection}) < Computer(${computerSelection})`;
                 break;
 
             case 'Scissors':
+                playerCount++;
                 alert(`Congratulations! You win: Player(${playerSelection}) > Computer(${computerSelection})`);
                 return `You win: Player(${playerSelection}) > Computer(${computerSelection})`;
                 break;
@@ -92,19 +131,21 @@ function evaluateMatch(playerSelection, computerSelection) {
         }
     }
 
-    if(playerSelection == 'Paper') {
+    if(playerSelection.toLocaleLowerCase() == 'paper') {
 
         switch (computerSelection) {
 
             case 'Paper':
-                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;               
+                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;
                 break;
-        
+
             case 'Scissors':
+                computerCount++;
                 return `You lose: Player(${playerSelection}) < Computer(${computerSelection})`;
                 break;
 
             case 'Rock':
+                playerCount++;
                 alert(`Congratulations! You win: Player(${playerSelection}) > Computer(${computerSelection})`);
                 return `You win: Player(${playerSelection}) > Computer(${computerSelection})`;
                 break;
@@ -114,19 +155,21 @@ function evaluateMatch(playerSelection, computerSelection) {
         }
     }
 
-    if(playerSelection == 'Scissors') {
+    if(playerSelection.toLocaleLowerCase() == 'scissors') {
 
         switch (computerSelection) {
 
             case 'Scissors':
-                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;               
+                return `Tie game: Player(${playerSelection}) = Computer(${computerSelection})`;
                 break;
-        
+
             case 'Rock':
+                computerCount++;
                 return `You lose: Player(${playerSelection}) < Computer(${computerSelection})`;
                 break;
 
             case 'Paper':
+                playerCount++;
                 alert(`Congratulations! You win: Player(${playerSelection}) > Computer(${computerSelection})`);
                 return `You win: Player(${playerSelection}) > Computer(${computerSelection})`;
                 break;

@@ -1,0 +1,43 @@
+
+body {
+    font-family: 'Balsamiq Sans', cursive;
+}
+
+header h1 {
+    text-align: center;
+}
+
+section p {
+    text-align: center;
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    /* display: grid; */
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* gap: 2em; */
+}
+
+button {
+    font-size: 1em;
+    padding: 1em;
+    border-radius: 1em;
+}
+
+h2 {
+    text-align: center;
+    color: blue;
+}
+
+h3 {
+    text-align: center;
+    color: black;
+}
+
+.results {
+    text-align: center;
+    font-size: 1.5em;
+}

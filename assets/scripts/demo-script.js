@@ -47,23 +47,8 @@ function playRound(playerSelection, computerSelection) {
 
 // Prompt the user to enter either: Rock, Paper or Scissors
 function userPlay() {
-
     let userChoice = prompt(`Enter your selection - Rock, Paper or Scissors: `);
     return userChoice;
-    // do {
-    //     userChoice = prompt(`Enter your selection - Rock, Paper or Scissors: `);
-
-    //     // Validation needed to ensure only one of the three values are entered, nothing else.
-    //     if(userChoice.toLocaleLowerCase() == "rock" || userChoice.toLocaleLowerCase() == "paper" ||
-    //             userChoice.toLocaleLowerCase == "scissors") {
-    //             return userChoice;
-    //         }
-    //         else {
-    //             userChoice = prompt(`Enter a valid selection - Rock, Paper or Scissors: `);
-    //         }
-    //     } while (userChoice.toLocaleLowerCase() != "rock" || userChoice.toLocaleLowerCase() == "paper" ||
-    //             userChoice.toLocaleLowerCase == "scissors");
-
 }
 
 // Randomly return either: Rock, Paper or Scissors

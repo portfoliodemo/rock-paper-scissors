@@ -10,6 +10,7 @@ const matchTracker = document.querySelector('div.match-tracker');
 const matchCounter = document.createElement('h3');
 const results = document.createElement('h2');
 const finalResults = document.querySelector('div.final-results');
+const champion = document.querySelector('div.champion');
 const playAgain = document.querySelector('div.play-again');
 const restart = document.createElement('h2');
 const finalMessage = document.createElement('h2');
@@ -167,6 +168,7 @@ function victory() {
     results.style.color = "orange";
     results.textContent = `You Win! ${playerSelection} vs ${computerSelection}`;
     score.textContent = `Final Score - Player: ${playerWinTotal} Computer: ${computerWinTotal}`;
+    champion.style.display = "grid";
     div.appendChild(results);
     div.appendChild(score);
     finalMessage.textContent = `CHAMPION!`;
@@ -188,6 +190,7 @@ function resetBoard() {
     match = 0;
     playerWinTotal = 0;
     computerWinTotal = 0;
+    champion.style.display = "none";
     results.textContent = ``;
     matchCounter.textContent = ``;
     finalResults.textContent = ``;

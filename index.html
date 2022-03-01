@@ -4,49 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock - Paper - Scissors</title>
+    <title>Rock Paper Scissors</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="./assets/styles/main.css">
+    <link rel="stylesheet" href="./assets/styles/idea-styles.css">
 
 </head>
 <body>
     
     <header>
-        <h1>Rock - Paper - Scissors</h1>        
+        <h1>Rock - Paper - Scissors</h1>
     </header>
 
-    <!-- Three Images: Rock - Paper - Scissors -->
+    <section>
+        <p>Click Rock, Paper or Scissors to play!</p>
+        <p>First to five wins!</p>
+    </section>
+
     <main>
-        <figure data-selection="rock">
-            <img src="./assets/images/electric-guitar.svg" alt="Electric Guitar" title="Rock">
-            <button id="rock">Rock</button>
+        <figure>
+            <img src="./assets/images/electric-guitar.svg" alt="Electric Guitar | Rock">
+            <button id="rock" data-player="rock">Rock</button>
         </figure>
-        <figure data-selection="paper">
-            <img src="./assets/images/money-stack.svg" alt="Money Stack" title="Money">
-            <button id="paper" >Paper</button>
+        <figure>
+            <img src="./assets/images/money-stack.svg" alt="Money | Paper">
+            <button id="paper" data-player="paper">Paper</button>
         </figure>
-        <figure data-selection="scissors">
-            <img src="./assets/images/scissors.svg" alt="Scissors" title="Scissors">
-            <button id="scissors">Scissors</button>
+        <figure>
+            <img src="./assets/images/scissors.svg" alt="Scissors">
+            <button id="scissors" data-player="scissors">Scissors</button>
         </figure>
     </main>
 
-    <section>
-        <div class="results"></div>
-    </section>
+    <div class="match-tracker"></div>
 
-    <!-- <script src="./assets/scripts/test-script.js"></script> -->
-    <script src="./assets/scripts/main-scripts.js"></script>
+    <div class="results"></div>
+
+    <div class="final-results"></div>
+
+    <div class="play-again"></div>
+
+    <script src="./assets/scripts/rock-paper-scissors.js"></script>
 </body>
 </html>

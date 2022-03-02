@@ -67,7 +67,7 @@ function capitalize(playerSelection) {
 function playRound(playerSelection, computerSelection) {
 
     match++;
-    matchCounter.textContent = `Match #: ${match}`;
+    matchCounter.textContent = `Match # ${match}`;
     matchTracker.appendChild(matchCounter);
     
     if(playerSelection === computerSelection) {

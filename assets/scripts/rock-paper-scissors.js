@@ -6,8 +6,11 @@ const rock = document.querySelector('#rock');
 const paper = document.querySelector('#paper');
 const scissors = document.querySelector('#scissors');
 const div = document.querySelector('div');
+const showRules = document.querySelector('#show-rules');
+const rules = document.querySelector('.rules');
 const matchTracker = document.querySelector('div.match-tracker');
 const matchCounter = document.createElement('h3');
+const welcomeChallenge = document.querySelector('div.welcome-challenge');
 const results = document.createElement('h2');
 const finalResults = document.querySelector('div.final-results');
 const champion = document.querySelector('div.champion');
@@ -15,6 +18,7 @@ const playAgain = document.querySelector('div.play-again');
 const restart = document.createElement('h2');
 const finalMessage = document.createElement('h2');
 const score = document.createElement('h3');
+const lose = document.querySelector('div.game-over');
 let computerSelection = ``;
 let playerSelection = ``;
 let match = 0;
@@ -22,6 +26,10 @@ let playerWinTotal = 0;
 let computerWinTotal = 0;
 let scoreToWin = 5;
 let gameOver = false;
+
+// Generate Match Scoreboard
+// matchCounter.textContent = `Match # ${match}`;
+// matchTracker.appendChild(matchCounter);
 
 // Computer choice, randomly return either: Rock, Paper or Scissors
 function computerPlay() {
@@ -31,7 +39,7 @@ function computerPlay() {
 }
 
 rock.addEventListener('click', () => {
-    if(gameOver) {
+    if (gameOver) {
         resetBoard();
     }
     playerSelection = rock.dataset.player;
@@ -41,7 +49,7 @@ rock.addEventListener('click', () => {
 });
 
 paper.addEventListener('click', () => {
-    if(gameOver) {
+    if (gameOver) {
         resetBoard();
     }
     playerSelection = paper.dataset.player;
@@ -51,7 +59,7 @@ paper.addEventListener('click', () => {
 });
 
 scissors.addEventListener('click', () => {
-    if(gameOver) {
+    if (gameOver) {
         resetBoard();
     }
     playerSelection = scissors.dataset.player;
@@ -66,11 +74,12 @@ function capitalize(playerSelection) {
 
 function playRound(playerSelection, computerSelection) {
 
+    welcomeChallenge.style.display = "none";
     match++;
     matchCounter.textContent = `Match # ${match}`;
     matchTracker.appendChild(matchCounter);
     
-    if(playerSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
         results.style.color = "green";
         results.textContent = `Tie: ${playerSelection} vs ${computerSelection}`;
         score.textContent = `Score - Player: ${playerWinTotal} Computer: ${computerWinTotal}`;
@@ -79,21 +88,21 @@ function playRound(playerSelection, computerSelection) {
         return;
     }
 
-    if(playerSelection !== computerSelection) {
+    if (playerSelection !== computerSelection) {
         switch (playerSelection) {
 
             case `Rock`:
-                if(computerSelection === `Scissors`) {
+                if (computerSelection === `Scissors`) {
                     playerWinTotal++;
-                    if(playerWinTotal === scoreToWin) {
+                    if (playerWinTotal === scoreToWin) {
                         victory();
                         endGame();
                     } else if (playerWinTotal !== scoreToWin) {
                         winUpdate();
                     }
-                } else if(computerSelection === `Paper`) {
+                } else if (computerSelection === `Paper`) {
                     computerWinTotal++;
-                    if(computerWinTotal === scoreToWin) {
+                    if (computerWinTotal === scoreToWin) {
                         defeat();
                         endGame();
                     } else if (computerWinTotal !== scoreToWin) {
@@ -103,17 +112,17 @@ function playRound(playerSelection, computerSelection) {
                 break;
     
             case `Paper`:
-                if(computerSelection === `Rock`) {
+                if (computerSelection === `Rock`) {
                     playerWinTotal++;
-                    if(playerWinTotal === scoreToWin) {
+                    if (playerWinTotal === scoreToWin) {
                         victory();
                         endGame();
                     } else if (playerWinTotal !== scoreToWin) {
                         winUpdate();
                     }
-                } else if(computerSelection === `Scissors`) {
+                } else if (computerSelection === `Scissors`) {
                     computerWinTotal++;
-                    if(computerWinTotal === scoreToWin) {
+                    if (computerWinTotal === scoreToWin) {
                         defeat();
                         endGame();
                     } else if (computerWinTotal !== scoreToWin) {
@@ -123,17 +132,17 @@ function playRound(playerSelection, computerSelection) {
                 break;
     
             case `Scissors`:
-                if(computerSelection === `Paper`) {
+                if (computerSelection === `Paper`) {
                     playerWinTotal++;
-                    if(playerWinTotal === scoreToWin) {
+                    if (playerWinTotal === scoreToWin) {
                         victory();
                         endGame();
                     } else if (playerWinTotal !== scoreToWin) {
                         winUpdate();
                     }
-                } else if(computerSelection === `Rock`) {
+                } else if (computerSelection === `Rock`) {
                     computerWinTotal++;
-                    if(computerWinTotal === scoreToWin) {
+                    if (computerWinTotal === scoreToWin) {
                         defeat();
                         endGame();
                     } else if (computerWinTotal !== scoreToWin) {
@@ -171,6 +180,7 @@ function victory() {
     champion.style.display = "grid";
     div.appendChild(results);
     div.appendChild(score);
+    finalMessage.style.color = "orange";
     finalMessage.textContent = `CHAMPION!`;
     finalResults.appendChild(finalMessage);
 }
@@ -179,10 +189,11 @@ function defeat() {
     results.style.color = "red";
     results.textContent = `You Lose! ${playerSelection} vs ${computerSelection}`;
     score.textContent = `Final Score - Player: ${playerWinTotal} Computer: ${computerWinTotal}`;
+    lose.style.display = "grid";
     div.appendChild(results);
     div.appendChild(score);
     finalMessage.style.color = "red";
-    finalMessage.textContent = `Game Over`;
+    finalMessage.textContent = `xX -- Game Over -- Xx`;
     finalResults.appendChild(finalMessage);
 }
 
@@ -191,6 +202,7 @@ function resetBoard() {
     playerWinTotal = 0;
     computerWinTotal = 0;
     champion.style.display = "none";
+    lose.style.display = "none";
     results.textContent = ``;
     matchCounter.textContent = ``;
     finalResults.textContent = ``;
@@ -201,7 +213,7 @@ function resetBoard() {
 
 function endGame() {
     // console.log(`Game Over`);
-    restart.textContent = `Click Rock, Paper or Scissors to Play Again!`;
+    restart.textContent = `Select Rock, Paper or Scissors to Play Again!`;
     playAgain.appendChild(restart);
     gameOver = true;
 }

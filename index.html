@@ -9,10 +9,13 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Hubballi&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap" rel="stylesheet"> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">  -->
 
     <!-- CSS Stylesheet -->
-    <link rel="stylesheet" href="./assets/styles/idea-styles.css">
+    <link rel="stylesheet" href="./assets/styles/main.css">
 
 </head>
 <body>
@@ -22,9 +25,15 @@
     </header>
 
     <section>
-        <p>Click Rock, Paper or Scissors to play!</p>
-        <p>First to five wins!</p>
+        <p>Select Rock, Paper or Scissors to play!</p>
+        <!-- <p>First to five wins!</p> -->
     </section>
+    <details>
+        <summary>Rules</summary>
+        <p>Rock > Scissors</p>
+        <p>Scissors > Paper</p>
+        <p>Paper > Rock</p>
+    </details>
 
     <main>
         <figure>
@@ -41,20 +50,33 @@
         </figure>
     </main>
 
-    <div class="match-tracker"></div>
+    <div class="match-tracker">
+        <h2 id="scoreboard">Scoreboard</h2>
+        <div class="welcome-challenge">
+            <p>Try your <span id="green">luck</span> if you dare, first to <span id="orange">five</span> or <span id="red">beware!</span></p>
+        </div>
+        <div class="final-results"></div>
+        <div class="champion">
+            <figure>
+                <img src="./assets/images/trophy.svg" alt="Championship Trophy">
+            </figure>
+        </div>
+        <div class="game-over">
+            <figure>
+                <img src="./assets/images/tombstone.svg" alt="Game Over">
+            </figure>
+        </div>
+    </div>
 
     <div class="results"></div>
 
-    <div class="final-results"></div>
-
-    <div class="champion">
-        <figure>
-            <img src="./assets/images/trophy.svg" alt="Championship Trophy">
-        </figure>
-    </div>
-
     <div class="play-again"></div>
 
+    <footer>
+        <!-- <img id="rocket" src="./assets/images/rocketship.svg" alt="Rocketship"> -->
+        <p>&copy; Nathan Ryan</p>
+        <!-- Let's Go Oilers! -->
+    </footer>
     <script src="./assets/scripts/rock-paper-scissors.js"></script>
 </body>
 </html>
